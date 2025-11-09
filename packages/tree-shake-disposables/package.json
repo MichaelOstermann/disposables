@@ -1,11 +1,11 @@
 {
-    "name": "@monstermann/disposables",
+    "name": "@monstermann/tree-shake-disposables",
     "type": "module",
     "version": "0.0.0",
     "description": "Small & fast disposables.",
     "author": "Michael Ostermann <michaelostermann@me.com>",
     "license": "MIT",
-    "homepage": "https://MichaelOstermann.github.io/disposables",
+    "homepage": "https://MichaelOstermann.github.io/disposables/",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MichaelOstermann/disposables.git"
@@ -17,10 +17,15 @@
     "sideEffects": false,
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
-        },
-        "./*": "./dist/*"
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        }
     },
     "main": "./dist/index.js",
     "module": "./dist/index.js",
@@ -32,5 +37,7 @@
         "bundle": "tsdown",
         "release": "bun publish --access public"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@monstermann/tree-shake-import-namespaces": "^0.1.0"
+    }
 }

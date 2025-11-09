@@ -1,18 +1,18 @@
-import { dspCreate, dspDispose, dspLink } from "@monstermann/disposables"
+import { Dsp } from "@monstermann/disposables"
 
-const a = dspCreate()
+const a = Dsp.create()
 
 const m1 = process.memoryUsage().heapUsed
 
 for (let i = 0; i < 1_000_000; i++) {
-    const b = dspCreate()
-    dspLink(b, () => {})
-    dspLink(a, b)
+    const b = Dsp.create()
+    Dsp.add(b, () => {})
+    Dsp.add(a, b)
 }
 
 const m2 = process.memoryUsage().heapUsed
 
-dspDispose(a)
+Dsp.dispose(a)
 gc()
 
 const m3 = process.memoryUsage().heapUsed

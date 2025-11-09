@@ -1,4 +1,4 @@
-import { dspCreate, dspDispose, dspLink } from "@monstermann/disposables"
+import { Dsp } from "@monstermann/disposables"
 import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer"
 import { Bench } from "tinybench"
 
@@ -9,12 +9,12 @@ let dsp, stack
 function setupDsp(size) {
     return {
         beforeEach() {
-            dsp = dspCreate()
+            dsp = Dsp.create()
             let current = dsp
             for (let i = 0; i < size; i++) {
-                const next = dspCreate()
-                dspLink(next, () => {})
-                dspLink(current, next)
+                const next = Dsp.create()
+                Dsp.add(next, () => {})
+                Dsp.add(current, next)
                 current = next
             }
         },
@@ -38,9 +38,9 @@ function setupDisposableStack(size) {
 
 bench
 
-    .add("dspDispose(dsp) x 1", () => dspDispose(dsp), setupDsp(1))
-    .add("dspDispose(dsp) x 10", () => dspDispose(dsp), setupDsp(10))
-    .add("dspDispose(dsp) x 100", () => dspDispose(dsp), setupDsp(100))
+    .add("Dsp.dispose(dsp) x 1", () => Dsp.dispose(dsp), setupDsp(1))
+    .add("Dsp.dispose(dsp) x 10", () => Dsp.dispose(dsp), setupDsp(10))
+    .add("Dsp.dispose(dsp) x 100", () => Dsp.dispose(dsp), setupDsp(100))
 
     .add("DisposableStack.dispose() x 1", () => stack.dispose(), setupDisposableStack(1))
     .add("DisposableStack.dispose() x 10", () => stack.dispose(), setupDisposableStack(10))
