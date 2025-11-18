@@ -1,15 +1,15 @@
 import { describe, expect, it } from "vitest"
-import { dspCreate, dspDispose, dspDisposed } from "../src"
+import { Dsp } from ".."
 
-describe("dspDisposed", () => {
+describe("Dsp.isDisposed", () => {
     it("should return true for disposed dsp instances", () => {
-        const dsp = dspCreate()
-        dspDispose(dsp)
-        expect(dspDisposed(dsp)).toBe(true)
+        const dsp = Dsp.create()
+        Dsp.dispose(dsp)
+        expect(Dsp.isDisposed(dsp)).toBe(true)
     })
 
     it("should return false for alive dsp instances", () => {
-        const dsp = dspCreate()
-        expect(dspDisposed(dsp)).toBe(false)
+        const dsp = Dsp.create()
+        expect(Dsp.isDisposed(dsp)).toBe(false)
     })
 })

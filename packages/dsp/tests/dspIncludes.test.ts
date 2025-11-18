@@ -1,29 +1,29 @@
 import { describe, expect, it } from "vitest"
-import { dspCreate, dspIncludes, dspLink } from "../src"
+import { Dsp } from ".."
 
-describe("dspIncludes", () => {
+describe("Dsp.includes", () => {
     it("should return false for missing callbacks", () => {
-        const dsp = dspCreate()
-        expect(dspIncludes(dsp, () => {})).toBe(false)
+        const dsp = Dsp.create()
+        expect(Dsp.includes(dsp, () => {})).toBe(false)
     })
 
     it("should return false for missing dsps", () => {
-        const dsp = dspCreate()
-        expect(dspIncludes(dsp, dspCreate())).toBe(false)
+        const dsp = Dsp.create()
+        expect(Dsp.includes(dsp, Dsp.create())).toBe(false)
     })
 
     it("should return true for included callbacks", () => {
-        const dsp = dspCreate()
+        const dsp = Dsp.create()
         const cb = () => {}
-        dspLink(dsp, cb)
-        expect(dspIncludes(dsp, cb)).toBe(true)
+        Dsp.add(dsp, cb)
+        expect(Dsp.includes(dsp, cb)).toBe(true)
     })
 
     it("should return true for included dsps", () => {
-        const dspA = dspCreate()
-        const dspB = dspCreate()
-        dspLink(dspA, dspB)
-        expect(dspIncludes(dspA, dspB)).toBe(true)
-        expect(dspIncludes(dspB, dspA)).toBe(false)
+        const dspA = Dsp.create()
+        const dspB = Dsp.create()
+        Dsp.add(dspA, dspB)
+        expect(Dsp.includes(dspA, dspB)).toBe(true)
+        expect(Dsp.includes(dspB, dspA)).toBe(false)
     })
 })

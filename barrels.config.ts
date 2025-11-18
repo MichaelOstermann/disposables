@@ -4,11 +4,11 @@ import { namespace } from "@monstermann/barrels-namespace"
 
 export default defineConfig([
     namespace({
-        entries: "./packages/disposables/src/Dsp",
+        entries: "./packages/dsp/src/Dsp",
         exclude: ["**/internals.ts"],
     }),
     flat({
-        entries: "./packages/disposables/src",
+        entries: "./packages/dsp/src",
         include: ["*", "Dsp/index.js"],
     }),
 ])

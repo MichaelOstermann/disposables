@@ -1,28 +1,28 @@
 import { describe, expect, it } from "vitest"
-import { dspCreate, dspFind, dspLink } from "../src"
+import { Dsp } from ".."
 
-describe("dspFind", () => {
+describe("Dsp.find", () => {
     it("should return undefined for missing callbacks", () => {
-        const dsp = dspCreate()
-        expect(dspFind(dsp, () => {})).toBe(undefined)
+        const dsp = Dsp.create()
+        expect(Dsp.find(dsp, () => {})).toBe(undefined)
     })
 
     it("should return undefined for missing dsps", () => {
-        const dsp = dspCreate()
-        expect(dspFind(dsp, dspCreate())).toBe(undefined)
+        const dsp = Dsp.create()
+        expect(Dsp.find(dsp, Dsp.create())).toBe(undefined)
     })
 
     it("should return link for included callbacks", () => {
-        const dsp = dspCreate()
+        const dsp = Dsp.create()
         const cb = () => {}
-        const link = dspLink(dsp, cb)
-        expect(dspFind(dsp, cb)).toBe(link)
+        const link = Dsp.add(dsp, cb)
+        expect(Dsp.find(dsp, cb)).toBe(link)
     })
 
     it("should return link for included dsps", () => {
-        const dspA = dspCreate()
-        const dspB = dspCreate()
-        const link = dspLink(dspA, dspB)
-        expect(dspFind(dspA, dspB)).toBe(link)
+        const dspA = Dsp.create()
+        const dspB = Dsp.create()
+        const link = Dsp.add(dspA, dspB)
+        expect(Dsp.find(dspA, dspB)).toBe(link)
     })
 })

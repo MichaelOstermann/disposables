@@ -1,18 +1,18 @@
 import { describe, expect, it } from "vitest"
-import { dspCreate, dspIs } from "../src"
+import { Dsp } from ".."
 
-describe("dspIs", () => {
+describe("Dsp.isDsp", () => {
     it("should return true for dsp instances", () => {
-        const dsp = dspCreate()
-        expect(dspIs(dsp)).toBe(true)
+        const dsp = Dsp.create()
+        expect(Dsp.isDsp(dsp)).toBe(true)
     })
 
     it("should return false for anything else", () => {
-        expect(dspIs(null)).toBe(false)
-        expect(dspIs(undefined)).toBe(false)
-        expect(dspIs(1)).toBe(false)
-        expect(dspIs("string")).toBe(false)
-        expect(dspIs({})).toBe(false)
-        expect(dspIs([])).toBe(false)
+        expect(Dsp.isDsp(null)).toBe(false)
+        expect(Dsp.isDsp(undefined)).toBe(false)
+        expect(Dsp.isDsp(1)).toBe(false)
+        expect(Dsp.isDsp("string")).toBe(false)
+        expect(Dsp.isDsp({})).toBe(false)
+        expect(Dsp.isDsp([])).toBe(false)
     })
 })
