@@ -23,11 +23,11 @@
     },
     "packages/dsp": {
       "name": "@monstermann/dsp",
-      "version": "0.2.2",
+      "version": "0.2.3",
     },
     "packages/unplugin-dsp": {
       "name": "@monstermann/unplugin-dsp",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "dependencies": {
         "@monstermann/tree-shake-import-namespaces": "^0.2.2",
         "unplugin": "^2.3.4",
