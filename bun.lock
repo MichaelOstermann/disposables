@@ -9,7 +9,7 @@
         "@monstermann/barrels-namespace": "^0.3.0",
         "@monstermann/dsp": "workspace:*",
         "@monstermann/eslint-config": "^0.5.0",
-        "@monstermann/tinybench-pretty-printer": "^0.2.0",
+        "@monstermann/tinybench-pretty-printer": "^0.3.0",
         "@monstermann/tsconfig": "^0.0.0",
         "@monstermann/vitepress-theme": "^0.2.0",
         "prompts": "^2.4.2",
@@ -278,7 +278,7 @@
 
     "@monstermann/tables": ["@monstermann/tables@0.0.0", "", { "dependencies": { "cli-truncate": "^4.0.0", "picocolors": "^1.0.1", "string-width": "^7.1.0" } }, "sha512-mpM86yGT6EPHIyB0c4uIdKQ9mPupfNotn0UHWbj1EVeYpJP/hC9k0p6KoLf9ZZ/r3gHu9PRq61tr3K8Yeg/Rng=="],
 
-    "@monstermann/tinybench-pretty-printer": ["@monstermann/tinybench-pretty-printer@0.2.0", "", { "dependencies": { "@monstermann/tables": "^0.0.0", "picocolors": "^1.0.1" }, "peerDependencies": { "tinybench": "^5.0.0" } }, "sha512-hSYfBNab4hZBez0U85uh35gLezQIVNYGsbGnBnI6ds1Ufl8ZN7HwhyrdRTkl5JQNdcUFVLF+0E+89LdkcnSZXg=="],
+    "@monstermann/tinybench-pretty-printer": ["@monstermann/tinybench-pretty-printer@0.3.0", "", { "dependencies": { "@monstermann/tables": "^0.0.0", "picocolors": "^1.0.1" }, "peerDependencies": { "tinybench": "^6.0.0" } }, "sha512-tuBUvFBQvBg8s9cktbt7xgdAD1UYbWPq9dGrkcs/2DFJxnSi6pGiagPKDX021KeGOPJSF5AfW4rZMJWSc8m18Q=="],
 
     "@monstermann/tree-shake-import-namespaces": ["@monstermann/tree-shake-import-namespaces@0.2.0", "", { "dependencies": { "@jridgewell/remapping": "^2.3.4", "@jridgewell/sourcemap-codec": "^1.5.4", "astring": "^1.9.0", "magic-string": "^0.30.17", "oxc-parser": "^0.76.0", "oxc-walker": "^0.3.0", "picocolors": "^1.1.1" } }, "sha512-CFc6Ym0Uf95V5QpvacC2cAzlv6AoO/YQj9BSoiReIqeMUqouBtc7HZpwecMbQcdPyXicwe2b5M+2zwMPWdWYMw=="],
 
